@@ -1,0 +1,54 @@
+```mermaid
+flowchart TD
+    classDef phase fill:#0f172a,stroke:#334155,stroke-width:2px,color:#f8fafc;
+    classDef stage fill:#1e293b,stroke:#38bdf8,stroke-width:1.5px,color:#f1f5f9;
+    classDef stagePurple fill:#1e293b,stroke:#c084fc,stroke-width:1.5px,color:#f1f5f9;
+    classDef stageAmber fill:#1e293b,stroke:#fbbf24,stroke-width:1.5px,color:#f1f5f9;
+    classDef stageGreen fill:#1e293b,stroke:#34d399,stroke-width:1.5px,color:#f1f5f9;
+    classDef stageRose fill:#1e293b,stroke:#fb7185,stroke-width:1.5px,color:#f1f5f9;
+    classDef decision fill:#0b0f19,stroke:#f59e0b,stroke-width:2px,color:#fbbf24;
+    classDef discharge fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#34d399;
+    classDef abstain fill:#4c0519,stroke:#e11d48,stroke-width:2px,color:#fb7185;
+
+    subgraph P1["PHASE I: DATA INGESTION & CLINICAL CANONICALIZATION"]
+        S1["<b>Stage 1: Single-Organ Filtering Engine</b><br/>PMC-VQA Chest & Lung X-rays Extraction"]:::stage
+        S2["<b>Stage 2: RadLex Terminology Canonicalizer</b><br/>RSNA Ontology Normalization (RID Mapping)"]:::stage
+        S3["<b>Stage 3: Reasoning Stratification</b><br/>L1: Recognition | L2: Localization | L3: Diagnosis"]:::stage
+        S4["<b>Stage 4: Open-Ended Prompt Transformer</b><br/>Option Stripping (A/B/C/D) & Free-Text Tx"]:::stage
+        S1 --> S2 --> S3 --> S4
+    end
+
+    subgraph P2["PHASE II: MODEL QUANTIZATION & MULTIMODAL PEFT"]
+        S5["<b>Stage 5: NF4 4-Bit Double Quantization</b><br/>Frozen Base Qwen3-VL-4B + bfloat16 Activations"]:::stagePurple
+        S6["<b>Stage 6: Joint Vision-Language PEFT LoRA</b><br/>r=32, alpha=64 on LLM + Vision Merger"]:::stagePurple
+        S7["<b>Stage 7: Difficulty-Weighted Cross-Entropy</b><br/>Loss Weights: L1=1.0, L2=1.5, L3=2.0"]:::stagePurple
+        S8["<b>Stage 8: 5,000-Step Multimodal Training</b><br/>AdamW (lr=2e-4), Cosine Decay, Warmup=200"]:::stagePurple
+        S5 --> S6 --> S7 --> S8
+    end
+
+    subgraph P3["PHASE III: UNCERTAINTY QUANTIFICATION & CALIBRATION"]
+        S9["<b>Stage 9: Token Log-Likelihood Proxy</b><br/>Sequence Confidence: c(Y|X) = exp(1/N sum log P(y_t))"]:::stageAmber
+        S10["<b>Stage 10: Temperature Scaling Calibration</b><br/>Optimal T* = 1.150 | ECE: 12.14% -> 2.85%"]:::stageAmber
+        S9 --> S10
+    end
+
+    subgraph P4["PHASE IV: BOUNDED VERIFICATION & SELECTIVE ABSTENTION"]
+        S11["<b>Stage 11: Verification Re-Prompt Controller</b><br/>Attempt 2 for low-confidence L2/L3 queries"]:::stageGreen
+        D12{"<b>Stage 12: Selective Reliability Gate</b><br/>Calibrated Confidence c >= 0.60?"}:::decision
+        OUT_PASS["<b>Autonomous Discharge</b><br/>Clinical Coverage: 92.40%"]:::discharge
+        OUT_ABSTAIN["<b>Clinical Abstention</b><br/>Route to Specialist (7.60%)"]:::abstain
+        S11 --> D12
+        D12 -- Yes: c >= 0.60 --> OUT_PASS
+        D12 -- No: c < 0.60 --> OUT_ABSTAIN
+    end
+
+    subgraph P5["PHASE V: CLINICAL EVALUATION & AUTOMATION"]
+        S13["<b>Stage 13: BioBERT Semantic Similarity</b><br/>Domain Cosine Sim >= 0.82 vs Ground Truth"]:::stageRose
+        S14["<b>Stage 14: Automated Jupyter Engine</b><br/>Headless MMC.ipynb Execution & Benchmark"]:::stageRose
+        S15["<b>Stage 15: PDF Report Generator</b><br/>Publication-Grade archi.pdf & Master Report"]:::stageRose
+        S13 --> S14 --> S15
+    end
+
+    P1 ==> P2 ==> P3 ==> P4
+    OUT_PASS ==> S13
+```

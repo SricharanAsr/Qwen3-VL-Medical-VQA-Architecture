@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1200" width="1920" height="1200" style="background:#0b0f19;font-family:-apple-system,sans-serif;">
+<defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.75" opacity="0.6"/></pattern>
+<linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#38bdf8"/><stop offset="50%" stop-color="#818cf8"/><stop offset="100%" stop-color="#c084fc"/></linearGradient>
+</defs>
+<rect width="1920" height="1200" fill="#0b0f19"/><rect width="1920" height="1200" fill="url(#g)"/>
+<g transform="translate(60, 45)">
+<text x="0" y="32" fill="url(#hg)" font-size="34" font-weight="800">QWEN3-VL-4B MEDICAL VQA: END-TO-END ARCHITECTURE</text>
+<text x="0" y="62" fill="#94a3b8" font-size="16" font-weight="500">Autonomous 15-Stage Deep Clinical Alignment Pipeline for Chest &amp; Lung Radiography</text>
+<line x1="0" y1="82" x2="1800" y2="82" stroke="#334155" stroke-width="1.5" opacity="0.6"/>
+</g>
+<g transform="translate(60, 150)">
+<rect width="335" height="980" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#1e293b" stroke-width="2"/>
+<rect width="335" height="42" rx="14" fill="#0284c7"/>
+<rect y="24" width="335" height="18" fill="#0284c7"/>
+<text x="16" y="27" fill="#ffffff" font-size="14" font-weight="700">PHASE I: DATASET & CURATION</text>
+<g transform="translate(15, 55)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#0284c7"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">1</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">Single-Organ Filter Engine</text>
+<text x="48" y="42" fill="#38bdf8" font-size="11" font-weight="600">Phase I: Curation</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Extracts PMC-VQA Chest & Lung X-Rays</text>
+<text x="12" y="90" fill="#cbd5e1" font-size="11">• prunes non-pulmonary imagery</text>
+<text x="12" y="108" fill="#cbd5e1" font-size="11">• validates AP/PA views.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">Modality: Chest Radiograph</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Filter: Organ == 'Pulmonary'</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">Output: 100% Curated X-Rays</text>
+</g>
+<g transform="translate(15, 280)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#0284c7"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">2</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">RadLex Term Canonicalizer</text>
+<text x="48" y="42" fill="#38bdf8" font-size="11" font-weight="600">Phase I: Curation</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Maps findings to standard RSNA RadLex IDs (RID) to eliminate colloquial ambiguity.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">Input: 'spot on right lung'</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">RadLex: RID:28491</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">Canonical: 'Right lung nodule'</text>
+</g>
+<g transform="translate(15, 505)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#0284c7"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">3</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">Reasoning Stratification</text>
+<text x="48" y="42" fill="#38bdf8" font-size="11" font-weight="600">Phase I: Curation</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Stratifies questions into L1 Recognition, L2 Localization, and L3 Diagnosis tiers.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">L1: Recognition (Normalcy)</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">L2: Localization (Lobes/Zones)</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">L3: Complex Diagnosis (Etiology)</text>
+</g>
+<g transform="translate(15, 730)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#0284c7"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">4</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">Open-Ended Prompt Tx</text>
+<text x="48" y="42" fill="#38bdf8" font-size="11" font-weight="600">Phase I: Curation</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Strips MCQ cues (A/B/C/D) to transform queries into free-text generative clinical prompts.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">MCQ: 'A) Effusion B) Normal'</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Stripper: Prune choice anchors</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">Prompt: 'Describe focal opacities'</text>
+</g>
+</g>
+<g transform="translate(425, 150)">
+<rect width="335" height="980" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#1e293b" stroke-width="2"/>
+<rect width="335" height="42" rx="14" fill="#7c3aed"/>
+<rect y="24" width="335" height="18" fill="#7c3aed"/>
+<text x="16" y="27" fill="#ffffff" font-size="14" font-weight="700">PHASE II: QWEN3-VL PEFT & TRAINING</text>
+<g transform="translate(15, 55)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#c084fc" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#7c3aed"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">5</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">NF4 Double Quantization</text>
+<text x="48" y="42" fill="#c084fc" font-size="11" font-weight="600">Phase II: PEFT</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• NormalFloat4 weights + bfloat16 activations on frozen Qwen3-VL-4B (<6GB VRAM footprint).</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">Base: Qwen3-VL-4B (Frozen)</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Precision: bfloat16 / NF4</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">VRAM Footprint: ~5.8 GB</text>
+</g>
+<g transform="translate(15, 280)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#c084fc" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#7c3aed"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">6</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">Joint Vision-Lang LoRA</text>
+<text x="48" y="42" fill="#c084fc" font-size="11" font-weight="600">Phase II: PEFT</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Injects LoRA adapters (r=32, alpha=64) into LLM attention & Vision-Language merger projector.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">LoRA Rank: r=32, Alpha=64</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Targets: q,k,v,o,gate,up,down</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">Trainable Params: ~33.5M</text>
+</g>
+<g transform="translate(15, 505)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#c084fc" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#7c3aed"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">7</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">Difficulty Weighted Loss</text>
+<text x="48" y="42" fill="#c084fc" font-size="11" font-weight="600">Phase II: PEFT</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Dynamic cross-entropy loss weights: L1=1.0x, L2=1.5x, L3=2.0x for diagnostic penalty.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">L_total = sum(w_i * L_CE)</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">L1=1.0x | L2=1.5x | L3=2.0x</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">Enforces deep feature attention</text>
+</g>
+<g transform="translate(15, 730)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#c084fc" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#7c3aed"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">8</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">5,000-Step Training</text>
+<text x="48" y="42" fill="#c084fc" font-size="11" font-weight="600">Phase II: PEFT</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• 5k optimization iterations with AdamW (lr=2e-4), cosine decay, and 200 warmup steps.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">Iterations: 5,000 Steps</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Effective Batch Size: 16</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">Warmup: 200 | Cosine Anneal</text>
+</g>
+</g>
+<g transform="translate(790, 150)">
+<rect width="335" height="980" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#1e293b" stroke-width="2"/>
+<rect width="335" height="42" rx="14" fill="#d97706"/>
+<rect y="24" width="335" height="18" fill="#d97706"/>
+<text x="16" y="27" fill="#ffffff" font-size="14" font-weight="700">PHASE III: CONFIDENCE & CALIBRATION</text>
+<g transform="translate(15, 55)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#d97706"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">9</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">Token Log-Likelihood Proxy</text>
+<text x="48" y="42" fill="#fbbf24" font-size="11" font-weight="600">Phase III: Calibration</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Length-normalized geometric mean of token probabilities for sequence confidence proxy.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">c(Y|X) = exp(1/N sum log P(y_t))</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Length-normalized confidence</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">Output score range: [0.0, 1.0]</text>
+</g>
+<g transform="translate(15, 280)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#d97706"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">10</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">Temperature Calibration</text>
+<text x="48" y="42" fill="#fbbf24" font-size="11" font-weight="600">Phase III: Calibration</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Post-hoc temperature scaling (T*=1.150) reducing ECE from 12.14% down to 2.85%.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">Optimal Temp: T* = 1.150</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Pre-ECE : 12.14% (Overconf)</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">Post-ECE:  2.85% (Optimal)</text>
+</g>
+</g>
+<g transform="translate(1155, 150)">
+<rect width="335" height="980" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#1e293b" stroke-width="2"/>
+<rect width="335" height="42" rx="14" fill="#059669"/>
+<rect y="24" width="335" height="18" fill="#059669"/>
+<text x="16" y="27" fill="#ffffff" font-size="14" font-weight="700">PHASE IV: VERIFY & ABSTAIN</text>
+<g transform="translate(15, 55)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#059669"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">11</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">Verification Re-Prompting</text>
+<text x="48" y="42" fill="#34d399" font-size="11" font-weight="600">Phase IV: Abstention</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Bounded Attempt 2 re-prompting with anatomic focus when c < 0.60 on L2/L3 queries.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">Trigger: c < 0.60 on L2/L3</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Prompt+: 'Re-examine subtle signs'</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">Bounded: Max 2 attempts</text>
+</g>
+<g transform="translate(15, 280)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#059669"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">12</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">Selective Abstention Gate</text>
+<text x="48" y="42" fill="#34d399" font-size="11" font-weight="600">Phase IV: Abstention</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Dual-threshold gate (tau=0.60): 92.40% autonomous discharge vs 7.60% radiologist triage.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">Threshold tau = 0.60</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Coverage: 92.40% Discharged</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">Abstention: 7.60% Specialist Triage</text>
+</g>
+</g>
+<g transform="translate(1520, 150)">
+<rect width="335" height="980" rx="14" fill="#0f172a" fill-opacity="0.8" stroke="#1e293b" stroke-width="2"/>
+<rect width="335" height="42" rx="14" fill="#e11d48"/>
+<rect y="24" width="335" height="18" fill="#e11d48"/>
+<text x="16" y="27" fill="#ffffff" font-size="14" font-weight="700">PHASE V: EVALUATION & REPORTS</text>
+<g transform="translate(15, 55)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#fb7185" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#e11d48"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">13</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">BioBERT Clinical Evaluator</text>
+<text x="48" y="42" fill="#fb7185" font-size="11" font-weight="600">Phase V: Evaluation</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Domain-aware BioBERT embedding cosine similarity benchmark requiring cosine >= 0.82.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">Model: dmis-lab/biobert-v1.1</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Cosine Similarity >= 0.82</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">Captures clinical semantics</text>
+</g>
+<g transform="translate(15, 280)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#fb7185" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#e11d48"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">14</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">MMC Jupyter Engine</text>
+<text x="48" y="42" fill="#fb7185" font-size="11" font-weight="600">Phase V: Evaluation</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Headless MMC.ipynb execution harness for automated logging and benchmark validation.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">Engine: MMC.ipynb Headless</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Automated metric recording</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">VRAM and runtime benchmarked</text>
+</g>
+<g transform="translate(15, 505)">
+<rect width="305" height="210" rx="10" fill="#1e293b" stroke="#fb7185" stroke-width="1.2"/>
+<rect x="12" y="12" width="28" height="28" rx="6" fill="#e11d48"/>
+<text x="26" y="31" fill="#fff" font-size="14" font-weight="800" text-anchor="middle">15</text>
+<text x="48" y="26" fill="#f1f5f9" font-size="13" font-weight="700">PDF Report Generator</text>
+<text x="48" y="42" fill="#fb7185" font-size="11" font-weight="600">Phase V: Evaluation</text>
+<rect x="12" y="52" width="281" height="1" fill="#334155"/>
+<text x="12" y="72" fill="#cbd5e1" font-size="11">• Automated publication-grade compilation of vector diagrams and master technical reports.</text>
+<rect x="12" y="130" width="281" height="68" rx="6" fill="#0b0f19"/>
+<text x="20" y="148" fill="#38bdf8" font-size="10" font-family="monospace">Assets: archi.pdf & Master Report</text>
+<text x="20" y="166" fill="#38bdf8" font-size="10" font-family="monospace">Vector PDF figures & LaTeX tables</text>
+<text x="20" y="184" fill="#38bdf8" font-size="10" font-family="monospace">IEEE/Nature submission ready</text>
+</g>
+</g>
+<g transform="translate(60, 1160)"><text x="0" y="0" fill="#64748b" font-size="12">Designed for Qwen3-VL-4B Medical Radiography Visual Question Answering System • Deep Learning &amp; Clinical Safety Architecture</text><text x="1800" y="0" fill="#64748b" font-size="12" text-anchor="end">Sricharan Asr • 2026</text></g>
+</svg>

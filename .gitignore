@@ -1,0 +1,89 @@
+﻿# ==============================================================================
+# Git Ignore - Qwen3-VL-4B Medical VQA (Chest & Lung Radiography)
+# Strict exclusion of heavy model weights, checkpoints, raw datasets & caches
+# ==============================================================================
+
+# Deep Learning Checkpoints & Weights
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+*.h5
+*.onnx
+*.engine
+*.tflite
+*.msgpack
+checkpoint-*/
+checkpoints/
+lora_weights/
+output/
+runs/
+wandb/
+mlruns/
+
+# Large Datasets & Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.7z
+*.rar
+*.bz2
+data/raw/
+data/images/
+data/PMC-VQA/
+data/processed/
+*.dcm
+*.nii
+*.nii.gz
+*.h5
+*.hdf5
+
+# Python & Environment Artifacts
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter & IDE Caches
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs & Temporary files
+*.log
+logs/
+temp/
+tmp/
+scratch/
+*.bak
